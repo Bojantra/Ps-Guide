@@ -207,18 +207,19 @@ body {
       padding: 10px; /* Just for demonstration */
   }
   
-  .item {
+ .item {
    display: flex;
    align-items: center;
    justify-content: center;
    padding-inline: 25px;
+   padding-block: 5px;
    border-radius: 50px;
-   border:#7d7d7d solid 1px;
+   border: #7d7d7d solid 1px;
    background-color: #414141;
-      display: inline-block; /* Display items in a row */
-     /* Set height for each item (optional) */
-      margin-right: 10px; /* Just for demonstration */
-  }
+   display: inline-block; /* Display items in a row */
+   margin-right: 10px; /* Just for demonstration */
+   box-shadow: 0px 0px 10px rgba(0, 10, 0, 1); /* Add drop shadow */
+}
   .container::-webkit-scrollbar {
    display: none; /* Hide scrollbar for WebKit browsers (like Chrome/Safari) */
 }
