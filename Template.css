@@ -200,3 +200,25 @@ body {
       border-radius: 5px;
       border: 1px dashed rgb(129, 129, 129);
    }
+  .container {
+      width: 95%; /* Set a fixed width for the container */
+      white-space: nowrap; /* Prevent line breaks */
+      overflow-x: auto; /* Enable horizontal scrolling */
+      padding: 10px; /* Just for demonstration */
+  }
+  
+  .item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding-inline: 25px;
+   border-radius: 50px;
+   border:#7d7d7d solid 1px;
+   background-color: #414141;
+      display: inline-block; /* Display items in a row */
+     /* Set height for each item (optional) */
+      margin-right: 10px; /* Just for demonstration */
+  }
+  .container::-webkit-scrollbar {
+   display: none; /* Hide scrollbar for WebKit browsers (like Chrome/Safari) */
+}
