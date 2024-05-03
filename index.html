@@ -247,7 +247,7 @@ let sources= [
         [
           {  
             "name": "Marquee tool",
-            "img": "tool-Icons\\Selection-tools\\eliptical -marquee-tool.png",
+            "img": "tool-Icons\\selection-tools\\eliptical -marquee-tool.png",
             "description": "Marrquie selection se koristi za i taka natamu i taka natamu.. ",
             "video": "\\videos\\da.jpg"
           },
@@ -285,6 +285,7 @@ let sources= [
       function AddTemplate(index) {
 
         
+
                let Baner = sources[0].baner[index];
 
 
@@ -297,10 +298,11 @@ let sources= [
                 <img src="${Baner}"
                 style="width:95%;border-radius: 5px;margin-bottom: 30px;margin-top: 10px;">
                 <div class="container">
-    <div class="item">Selection Tools</div>
-    <div class="item">Retouching and healing</div>
-    <div class="item">Crop tools </div>
-    <div class="item">Typing tools </div>
+    <div class="item"  onclick='AddTemplate(0)'>Selection Tools</div>
+    <div class="item"  onclick='AddTemplate(1)'>Crop And Slice</div>
+    <div class="item" onclick='AddTemplate(2)' >Painting and Drawing</div>
+    <div class="item"onclick='AddTemplate(3)' >Retouching/Healing </div>
+    <div class="item"onclick='AddTemplate(4)' >Typing tools</div>
     <!-- Add more items as needed -->
 </div>
                <div id='FullList'></div>
@@ -342,7 +344,36 @@ let sources= [
 
 
 
-               })}
+               })
+              
+               let mainContainer = document.querySelectorAll('.main');
+               if(mainContainer.length>1){
+                mainContainer[0].remove()
+ 
+                sources[1].tools[index].forEach((tool, toolIndex) => {
+                  let body = document.body
+                  let FullList = document.getElementById('FullList')
+                  let List = document.createElement('div')
+                  let buttonNumber =  toolIndex 
+                  List.innerHTML = `<div id="listDivStyle" >
+                  <div  class="list"  >
+                     <div class="toolImg">
+
+                        <img src="${tool.img}">
+                        <p>${tool.name}</p>
+                     </div>
+                     <div class="buttons-see-more">
+                        <img onclick='SeeMore(${buttonNumber})' id='SeeMore' src="Buttons/buton-see-more.png">
+                     </div>
+      
+                   
+                  </div> 
+                  </div>
+               `
+                  FullList.appendChild(List)})
+
+               }
+              }
 
             
    //   koga koristish d.getElementsByClassName dava HTML kolekcija
@@ -389,7 +420,7 @@ if(document.querySelectorAll('.description').length>1){
    //i kako da se kazi od kaj da vleci
 
 
-
+   
 }
 
 
