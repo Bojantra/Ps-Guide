@@ -281,100 +281,73 @@ let sources= [
       ]}
     ]
 
-    
-      function AddTemplate(index) {
-
-        
-
-               let Baner = sources[0].baner[index];
-
-
-
-               let body = document.body
-
-               let Template = document.createElement('div')
-               Template.innerHTML = `
-               <div class="main">
-                <img src="${Baner}"
-                style="width:95%;border-radius: 5px;margin-bottom: 30px;margin-top: 10px;">
+     function AddTemplate(index) {
+    setTimeout(function() {
+        let Baner = sources[0].baner[index];
+        let body = document.body;
+        let Template = document.createElement('div');
+        Template.innerHTML = `
+            <div class="main">
+                <img src="${Baner}" style="width:95%;border-radius: 5px;margin-bottom: 30px;margin-top: 10px;">
                 <div class="container">
-    <div class="item"  onclick='AddTemplate(0)'>Selection Tools</div>
-    <div class="item"  onclick='AddTemplate(1)'>Crop And Slice</div>
-    <div class="item" onclick='AddTemplate(2)' >Painting and Drawing</div>
-    <div class="item"onclick='AddTemplate(3)' >Retouching/Healing </div>
-    <div class="item"onclick='AddTemplate(4)' >Typing tools</div>
-    <!-- Add more items as needed -->
-</div>
-               <div id='FullList'></div>
-   
-               <a href="index.html" class="lists"> <img src="Buttons/buton-see-more.png"></a> 
+                    <div class="item"  onclick='AddTemplate(0)'>Selection Tools</div>
+                    <div class="item"  onclick='AddTemplate(1)'>Crop And Slice</div>
+                    <div class="item" onclick='AddTemplate(2)' >Painting and Drawing</div>
+                    <div class="item" onclick='AddTemplate(3)' >Retouching/Healing </div>
+                    <div class="item" onclick='AddTemplate(4)' >Typing tools</div>
+                    <!-- Add more items as needed -->
+                </div>
+                <div id='FullList'></div>
+                <a href="index.html" class="lists"> <img src="Buttons/buton-see-more.png"></a> 
+            </div>`;
+        
+        body.appendChild(Template);
 
-               </div>`
+        let menu = document.getElementById('MainMeniId');
+        menu.style.display = 'none';
 
-               body.appendChild(Template)
-               let menu = document.getElementById('MainMeniId')
-               menu.style.display = 'none'
+        sources[1].tools[index].forEach((tool, toolIndex) => {
+            let FullList = document.getElementById('FullList');
+            let List = document.createElement('div');
+            let buttonNumber = toolIndex;
+            List.innerHTML = `<div id="listDivStyle">
+                <div  class="list">
+                    <div class="toolImg">
+                        <img src="${tool.img}">
+                        <p>${tool.name}</p>
+                    </div>
+                    <div class="buttons-see-more">
+                        <img onclick='SeeMore(${buttonNumber})' id='SeeMore' src="Buttons/buton-see-more.png">
+                    </div>
+                </div> 
+            </div>`;
+            FullList.appendChild(List);
+        });
 
-         
+        // Remove the previous template if there's more than one
+        let mainContainer = document.querySelectorAll('.main');
+        if (mainContainer.length > 1) {
+            mainContainer[0].remove();
             sources[1].tools[index].forEach((tool, toolIndex) => {
-                  let body = document.body
-                  let FullList = document.getElementById('FullList')
-                  let List = document.createElement('div')
-                  let buttonNumber =  toolIndex 
-                  List.innerHTML = `<div id="listDivStyle" >
-                  <div  class="list"  >
-                     <div class="toolImg">
-
-                        <img src="${tool.img}">
-                        <p>${tool.name}</p>
-                     </div>
-                     <div class="buttons-see-more">
-                        <img onclick='SeeMore(${buttonNumber})' id='SeeMore' src="Buttons/buton-see-more.png">
-                     </div>
-      
-                   
-                  </div> 
-                  </div>
-               `
-                  FullList.appendChild(List)
-
-
-
-
-
-
-
-               })
-              
-               let mainContainer = document.querySelectorAll('.main');
-               if(mainContainer.length>1){
-                mainContainer[0].remove()
- 
-                sources[1].tools[index].forEach((tool, toolIndex) => {
-                  let body = document.body
-                  let FullList = document.getElementById('FullList')
-                  let List = document.createElement('div')
-                  let buttonNumber =  toolIndex 
-                  List.innerHTML = `<div id="listDivStyle" >
-                  <div  class="list"  >
-                     <div class="toolImg">
-
-                        <img src="${tool.img}">
-                        <p>${tool.name}</p>
-                     </div>
-                     <div class="buttons-see-more">
-                        <img onclick='SeeMore(${buttonNumber})' id='SeeMore' src="Buttons/buton-see-more.png">
-                     </div>
-      
-                   
-                  </div> 
-                  </div>
-               `
-                  FullList.appendChild(List)})
-
-               }
-              }
-
+                let FullList = document.getElementById('FullList');
+                let List = document.createElement('div');
+                let buttonNumber = toolIndex;
+                List.innerHTML = `<div id="listDivStyle">
+                    <div  class="list">
+                        <div class="toolImg">
+                            <img src="${tool.img}">
+                            <p>${tool.name}</p>
+                        </div>
+                        <div class="buttons-see-more">
+                            <img onclick='SeeMore(${buttonNumber})' id='SeeMore' src="Buttons/buton-see-more.png">
+                        </div>
+                    </div> 
+                </div>`;
+                FullList.appendChild(List);
+            });
+        }
+    }, 300); 
+}
             
    //   koga koristish d.getElementsByClassName dava HTML kolekcija
    //   koga koristish query selektor gi dava node list
