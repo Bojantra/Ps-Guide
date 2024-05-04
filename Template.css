@@ -92,8 +92,8 @@ body {
    .description img,p{
      margin-left: 15px;
    }
-   #video{
-   height: 190px;
+   .description video{
+   width:70%;
    padding: 10px;
    padding-top: 7px;
    border-radius:15px ;
