@@ -81,22 +81,20 @@ body {
       margin: 0px 15px 5px 15px;
       border-radius: 4px;
    }
-   .description p{
+  .description p{
       max-width: 90%;
       margin-inline: 10px;
       margin-block: 10px;
       border-radius: 3px;
       text-transform: capitalize;
-      padding-top: 7px;
+      padding-bottom: 15px;
    }
    .description img,p{
      margin-left: 15px;
    }
    .description video{
-   width:70%;
-   padding: 10px;
-   padding-top: 7px;
-   border-radius:15px ;
+   width:100%;
+ 
 
    }
    
