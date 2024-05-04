@@ -74,7 +74,7 @@ body {
     padding-top: 3px;
    }
    .description{
-      display: flex;
+      
       justify-content: space-between;
       align-items: center;
       background-color: #1b1b1b;
@@ -82,20 +82,20 @@ body {
       border-radius: 4px;
    }
    .description p{
-      max-width: 200px;
+      max-width: 90%;
       margin-inline: 10px;
       margin-block: 10px;
       border-radius: 3px;
       text-transform: capitalize;
+      padding-top: 7px;
    }
    .description img,p{
      margin-left: 15px;
    }
    #video{
-   width: 200px;
-   height: 110px;
+   height: 190px;
    padding: 10px;
-   padding-top: 12px;
+   padding-top: 7px;
    border-radius:15px ;
 
    }
